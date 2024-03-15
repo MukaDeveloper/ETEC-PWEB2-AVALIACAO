@@ -12,7 +12,7 @@
     </div> <br>
 
     <input type="submit" class="btn btn-primary" [disabled]="!formImc.valid" value="Calcular">
-  </form>
+  </form> <br>
 
   <div *ngIf="imc">
     <h3>Seu IMC é: {{ imc.toFixed(2) }}</h3>

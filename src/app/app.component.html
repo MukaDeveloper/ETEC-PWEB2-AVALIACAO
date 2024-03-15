@@ -1,0 +1,21 @@
+<content class="wrapper">
+  <h1>Cálculo de IMC</h1>
+  <h3>Samuel Bertoni Santos - 2.DS - PWEB2</h3>
+  <form [formGroup]="formImc" (ngSubmit)="onSubmit()" class="mt-4">
+    <div class="form-group">
+      <label for="weight">Insira seu peso&nbsp;&nbsp;</label>
+      <input type="number" formControlName="weight" name="weight" id="weight" required min="1" max="300" placeholder="Quilos" class="form-control border">
+    </div> <br>
+    <div class="form-group">
+      <label for="height">Insira sua altura&nbsp;&nbsp;</label>
+      <input type="number" formControlName="height" name="height" id="height" required maxlength="3" pattern="\d{3}" placeholder="Centímetros" class="form-control border">
+    </div> <br>
+
+    <input type="submit" class="btn btn-primary" [disabled]="!formImc.valid" value="Calcular">
+  </form>
+
+  <div *ngIf="imc">
+    <h3>Seu IMC é: {{ imc.toFixed(2) }}</h3>
+    <p>Condição: {{ condition }} | Grau: {{ degree }}</p>
+  </div>
+</content>
